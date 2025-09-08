@@ -8,7 +8,7 @@ def buscaLinear(itemBusca, lista):
             return i
     return -1
 
-def busaBinaria(itemBusca, lista):
+def buscaBinaria(itemBusca, lista):
     inicio = 0
     fim = len(lista)-1    
     while (inicio <= fim):
@@ -29,6 +29,5 @@ if __name__ == "__main__":
     lista = [1,2,3,4,4,5,6,7,7,8]
     lista2 = [1,2,3,4,4,5,6,1,7,8]
     #lista = [1,1,1,1,1]
-    print(contarElemento(4,lista))
-    print(ListarRepetidos(lista2))
-    print(ListarRepetidos2(lista))
+    print(buscaLinear(4,lista))
+    print(buscaBinaria(lista2))
