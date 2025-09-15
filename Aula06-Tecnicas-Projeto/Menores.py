@@ -35,7 +35,7 @@ def binaria5Menores(lista:list):
 def sort5Menores(lista:list):
     ordenada = lista.copy()
     ordenada.sort()
-    return lista[0:5]
+    return ordenada[0:5]
 
 if __name__ == "__main__":
     lista = [78,45,33,78,90,12,30,11,28,40,8,1,5]
