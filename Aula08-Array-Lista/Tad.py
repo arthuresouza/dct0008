@@ -9,8 +9,7 @@ def salvaNomes(nomes):
             arquivo.write(nome+"\n") 
         arquivo.flush()
         arquivo.close()
-    print(nomes)
-
+ 
 def lerNomes():
     nomes = list()
     with open("./Aula08-Array-Lista/lista_nomes.txt") as fil:

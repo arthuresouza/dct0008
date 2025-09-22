@@ -81,37 +81,6 @@ def bubbleSortRec(lista, n=0):
             i += 1
         return bubbleSortRec(lista,n-1)
 
-
-def mergeSortAux(lista, buffer, baixo, alto):
-    if baixo < alto:
-        middle = (baixo + alto) // 2
-        mergeSortAux(lista, buffer, baixo, middle)
-        mergeSortAux(lista, buffer, middle + 1, alto)
-        merge(lista, buffer, baixo, middle, alto)
-
-def mergeSort(lista):
-    buffer = list()
-    mergeSortAux(lista, buffer, 0, len(lista) - 1)
-
-def merge(lista, buffer, baixo, meio, alto):
-    i1 = baixo
-    i2 = meio + 1
-    for i in range(baixo, alto + 1):
-        if i1 > meio:
-            buffer[i] = lista[i2]
-            i2 += 1
-        elif i2 > alto:
-            buffer[i] = lista[i1]
-            i1 += 1
-        elif lista[i1] < lista[i2]:
-            buffer[i] = lista[i1]
-            i1 += 1
-        else:
-            buffer[i] = lista[i2]
-            i2 += 1
-    for i in range (baixo, alto + 1):
-        lista[i] = buffer[i]
-
 def quicksort(lista):
     quicksortHelper(lista, 0, len(lista) - 1)
 
@@ -138,5 +107,5 @@ def partition(lista, esquerda, direita):
     return fronteira
         
 if __name__ == "__main__":
-    lista = [3,2,8,2,5]
-    print(bubbleSortRec(lista))
+    lista = [3,2,8,1,5]
+    print(lista)
