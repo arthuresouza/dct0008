@@ -42,6 +42,7 @@ def analiseEmpirica(numeros):
 
 
 def gerarGrafico(numeros, resultados):
+    print(resultados)
     plt.figure(figsize=(10,6))
     plt.plot(numeros, resultados["While"], label="While", marker="o")
     plt.plot(numeros, resultados["PythonSum"], label="Python Sum ", marker="s")
@@ -55,7 +56,7 @@ def gerarGrafico(numeros, resultados):
     plt.show()
     
 if __name__ == "__main__":
-    maximo = 100000
+    maximo = 100
     numeros = range(1,maximo)
     resultados = analiseEmpirica(numeros)
     gerarGrafico(numeros, resultados)
