@@ -1,0 +1,3 @@
+{'nome': 'A', 'email': 'a', 'telefone': 'a'}
+{'nome': 'A', 'email': 'a', 'telefone': 'a'}
+{'nome': 'w', 'email': 'w', 'telefone': 'w'}

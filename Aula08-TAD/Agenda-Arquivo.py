@@ -1,6 +1,6 @@
-import ast
+ARQUIVO_AGENDA = "./Aula08-TAD/agenda.txt"
 
-ARQUIVO_AGENDA = "./Aula08-Array-Lista/agenda.txt"
+import ast
 
 def salvaContato(nome, email, telefone):
        contato = {"nome": nome, "email": email, "telefone": telefone}
