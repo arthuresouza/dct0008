@@ -1,10 +1,15 @@
+"""
+File: node.py
+Original Author: Ken Lambert (Fundamentals of Python Data Structure)
+Adapted by: Arthur Souza
+"""
+
 class Node(object):
     """Representa um nó de uma lista ligada."""
     def __init__(self, data, next = None):
         """Instancia o Nó com o próximo apontando para Vazio."""
         self.data = data
         self.next = next
-
     
 
 if __name__ == "__main__":
