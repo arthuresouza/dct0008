@@ -33,7 +33,7 @@ def executaExperimento(algoritmo,numeros,funcao):
         #    print(f'Executando {algoritmo} para entrada: {n}')
         resultado.append(medirTempo(funcao, n))
     salvaResultado(algoritmo,n,resultado)
-    print(f'Finalizado experimento para {algoritmo} para entrada: {n}')
+    print(f'Finalizado experimento para {algoritmo} para entrada: {n+1}')
 
 def executaExperimentoOrdenacao(algoritmo,numeros,funcao): 
     resultado = []
@@ -41,8 +41,9 @@ def executaExperimentoOrdenacao(algoritmo,numeros,funcao):
         #if(i%100==0):
         #    print(f'Executando {algoritmo} para entrada: {i}')
         resultado.append(medirTempo(funcao, numeros[:i+1]))
-    salvaResultado(algoritmo,n,resultado)
-    print(f'Finalizado experimento para {algoritmo} para entrada: {n}')
+    salvaResultado(algoritmo,i,resultado)
+    print(f'Finalizado experimento para {algoritmo} para entrada: {i}')
+    
 
    
 if __name__ == "__main__":
