@@ -1,5 +1,5 @@
-from Node import Node
 
+from Node import Node
 class LinkedList():
 
 
@@ -83,7 +83,7 @@ class LinkedList():
                 probe.next = newNode
     
     def removeFirst(self):
-        removedItem =  self.head.data
+        removedItem = self.head.data
         self.head = self.head.next
         return removedItem
     
