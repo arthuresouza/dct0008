@@ -2,3 +2,5 @@
 Repositório Python com Códigos de Exemplos de Disciplina de Estrutura de Dados - DCT/CERES/UFRN
 
 Os exemplos estão organizados em diretórios de aulas ou listas de execícios.
+
+Códigos obtidos ou adaptados do livro Fundamentos em Python - Estrutura de Dados (Ken A Lambert)
