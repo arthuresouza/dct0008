@@ -13,7 +13,7 @@ class LinkedQueue(AbstractCollection):
     def __init__(self, sourceCollection = None):
         """Sets the initial state of self, which includes the
         contents of sourceCollection, if it's present."""
-        self._front = self._rear = None
+        self.front = self.rear = None
         AbstractCollection.__init__(self, sourceCollection)
 
     # Accessor methods
@@ -28,7 +28,7 @@ class LinkedQueue(AbstractCollection):
         Raises: KeyError if the stack is empty."""
         if self.isEmpty():
             raise KeyError("The queue is empty.")
-        return self._front.data
+        return self.front.data
 
     # Mutator methods
     def clear(self):
@@ -39,11 +39,11 @@ class LinkedQueue(AbstractCollection):
         """Adds item to the rear of the queue."""
         newNode = Node(item, None)
         if self.isEmpty():
-            self._front = newNode
+            self.front = newNode
         else:
-            self._rear.next = newNode
-        self._rear = newNode
-        self._size += 1
+            self.rear.next = newNode
+        self.rear = newNode
+        self.size += 1
 
     def pop(self):
         """
@@ -53,11 +53,11 @@ class LinkedQueue(AbstractCollection):
         Postcondition: the front item is removed from the queue."""
         if self.isEmpty():
             raise KeyError("The queue is empty.")
-        oldItem = self._front.data
-        self._front = self._front.next
-        if self._front is None:
-            self._rear = None
-        self._size -= 1
+        oldItem = self.front.data
+        self.front = self.front.next
+        if self.front is None:
+            self.rear = None
+        self.size -= 1
         return oldItem
         
         

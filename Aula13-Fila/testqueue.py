@@ -45,5 +45,5 @@ def test(queueType):
         q.add(count)
     print(q)
 
-#test(ArrayQueue)
+test(ArrayQueue)
 #test(LinkedQueue)
