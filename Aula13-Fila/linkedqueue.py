@@ -19,7 +19,13 @@ class LinkedQueue(AbstractCollection):
     # Accessor methods
     def __iter__(self):
         """Supports iteration over a view of self."""
-        pass
+        """ by Arthur Souza"""
+        queue = list()
+        probe = self.front
+        while probe != None:
+            queue.append(probe.data)
+            probe = probe.next
+        return iter(queue)
     
     def peek(self):
         """
