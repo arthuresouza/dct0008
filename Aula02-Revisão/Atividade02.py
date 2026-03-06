@@ -6,7 +6,8 @@ Autor: Arthur Souza auxiliado por Codepilot
 def validarEmail(email):
     ''' Função para validar o formato do email. '''
     if "@" in email and "." in email:
-        return True
+        if email.index("@") < email.rindex("."):
+            return True
     return False
 
 def lerEmail():

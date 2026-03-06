@@ -75,8 +75,8 @@ if __name__ == "__main__":
     '''Programa para cadastrar um usuário e listar os usuários cadastrados.'''
     print(">>>> Cadastro de Usuário <<<<")
     while True:
-        print("0- Finalizar\n1 - Cadastrar usuário\n2 - Listar usuários cadastrados")
-        opcao = input("Escolha opção desejada:    ")
+        print("0 - Finalizar\n1 - Cadastrar usuário\n2 - Listar usuários cadastrados")
+        opcao = input("Escolha opção desejada: ")
         match opcao:
             case "0":
                 print("Encerrando programa.")
