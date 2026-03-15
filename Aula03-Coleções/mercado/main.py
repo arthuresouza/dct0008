@@ -12,7 +12,8 @@ def abrirLista():
             case "1":
                 nome = input("Descrição do item: ")
                 preco = float(input("Preço do item: "))
-                item = criarItem(nome, preco)
+                quantidade = int(input("Quantidade do item: "))
+                item = criarItem(nome, preco, quantidade)
                 listaItens.append(item)
             case "2":
                 for item in listaItens:
@@ -23,7 +24,7 @@ def finalizarLista(listaItens):
     ''' Função para finalizar a lista de compras, calculando o total. '''
     total = 0
     for item in listaItens:
-        total += item['preco']
+        total += item['preco'] * item['quantidade']
     print(f"Total da compra: R${total:.2f}")
 
 def main():
