@@ -12,6 +12,7 @@ def somaTotal(lista):
 def somaTotalRange(lista):
     '''Soma o total dos elementos de uma lista com Range.'''
     total = 0
+    idx = -1
     for idx in range(len(lista)):
         total += lista[idx]
     return total
@@ -34,3 +35,5 @@ if __name__ == "__main__":
     print(somaTotal(minha_lista))
     print(somaTotalRange(minha_lista))
     print(somaTotalWhileIf(minha_lista))
+
+    print(minha_lista[0:0])
