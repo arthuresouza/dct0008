@@ -10,7 +10,10 @@ Autor: Arthur Souza auxiliado por Codepilot
 '''
 
 def removerInicio(dicionario):
-    ''' Função para remover o primeiro elemento de um dicionário e deslocar os outros. '''
+    ''' Função para remover o primeiro elemento de um dicionário e deslocar os outros.
+        Lógica: crie uma variável de controle para iterar sobre as chaves do dicionário,
+        e para cada chave, atribua o valor da próxima chave.
+        Para a última chave, atribua uma string vazia.'''
     chavesDicionario = list(dicionario.keys())
     idx = 1
     for chave in chavesDicionario:
