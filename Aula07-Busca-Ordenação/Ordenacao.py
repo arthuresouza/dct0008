@@ -1,3 +1,7 @@
+"""
+Algoritmos de Ordenação insertionSort, BubbleSort, SelectionSort,  MergeSort, Quicksort
+Adaptado do Livro Fundamentls of Python
+"""
 def insertionSort(lista):
     i = 1
     while i < len(lista):
@@ -108,4 +112,6 @@ def partition(lista, esquerda, direita):
         
 if __name__ == "__main__":
     lista = [3,2,8,1,5]
-    print(lista)
+    listaQuick = lista.copy()
+    quicksort(listaQuick)
+    print(listaQuick)

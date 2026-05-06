@@ -1,64 +1,51 @@
 """
-Algoritmo MergeSort 
-Código do MergeSort comentado e com print de auxílio
-Adaptado de https://panda.ime.usp.br/panda/static/pythonds_pt/05-OrdenacaoBusca/OMergeSort.html
+Algoritmo MergeSort
+Adaptado do Livro Fundamentls of Python
 """
-def mergeSort(lista):
-    # Caso a lista tenha uma posição, está ordenada
-    if len(lista) <= 1:
-        return lista
 
-    # Divide a lista ao meio
-    meio = len(lista) // 2
-    listaEsqueda = lista[:meio]
-    listaDireita = lista[meio:]
-    print(f'lista: {lista}, meio: {meio}, esqueda: {listaEsqueda}, direita: {listaDireita}')
 
-    # Ordena as metades recursivamente
-    listaEsqueda = mergeSort(listaEsqueda)
-    listaDireita = mergeSort(listaDireita)
+def mergeSortAux(lista, buffer, esquerda, direito, log=False):
+    if(log):
+        print(f'MergeSortAux => Esquerda: {esquerda}, Direita: {direito}, Lista: {lista[esquerda:direito+1]}')
+    if esquerda < direito:
+        meio = (esquerda + direito) // 2
+        mergeSortAux(lista, buffer, esquerda, meio, log)
+        mergeSortAux(lista, buffer, meio + 1, direito, log)
+        merge(lista, buffer, esquerda, meio, direito, log)
 
-    # Combina as metades da lista
-    return merge(listaEsqueda, listaDireita)
+def mergeSort(lista, log=False):
+    # É necessário que a lista seja preenchida com elementos vazios
+    # Para evitar o erro de indice inexistente
+    buffer = [None] * len(lista) 
+    mergeSortAux(lista, buffer, 0, len(lista) - 1, log)
 
-def merge(listaEsquerda, listaDireita):
-    listaCombinada = []
-    indiceEsquerdo = 0  # Indica o elemento da lista esquerda
-    indiceDireito = 0  # Indica o elemento da lista direita
-
-    print(f'Combinando esqueda: {listaEsquerda} + direita: {listaDireita}')
-    log = ""
-    # Compara os elementos das listas, selecionando o menor e incluindo na lista combinada
-    while indiceEsquerdo < len(listaEsquerda) and indiceDireito < len(listaDireita):
-        log += ""
-        if listaEsquerda[indiceEsquerdo] < listaDireita[indiceDireito]:
-            log += f"\tinsEsq {listaEsquerda[indiceEsquerdo]}"
-            listaCombinada.append(listaEsquerda[indiceEsquerdo])
-            indiceEsquerdo += 1
+def merge(lista, buffer, baixo, meio, alto, log=False):
+    i1 = baixo
+    i2 = meio + 1
+    if(log):
+        print(f' Merge => Lista1: {lista[baixo:meio+1]}, Lista2: {lista[meio+1:alto+1]}, Copia: {buffer}')  
+        print(f' Merge => Esq: {baixo}, Dir: {alto}, Mei: {meio}')
+    for i in range(baixo, alto + 1):
+        if(log):
+            print(f'i: {i}, i1: {i1}, i2: {i2}')
+            print(f'buffer: {buffer}')
+        if i1 > meio:
+            buffer[i] = lista[i2]
+            i2 += 1
+        elif i2 > alto:
+            buffer[i] = lista[i1]
+            i1 += 1
+        elif lista[i1] < lista[i2]:
+            buffer[i] = lista[i1]
+            i1 += 1
         else:
-            log += f"\tinsDir {listaDireita[indiceDireito]}"
-            listaCombinada.append(listaDireita[indiceDireito])
-            indiceDireito += 1
-    log += "\n"
-    # Adiciona elementos restantes da lista esquerda
-    while indiceEsquerdo < len(listaEsquerda):
-        log += f"\tinsEsqRes {listaEsquerda[indiceEsquerdo]}"
-        listaCombinada.append(listaEsquerda[indiceEsquerdo])
-        indiceEsquerdo += 1
-
-    # Adiciona elementos restantes da lista direita
-    while indiceDireito < len(listaDireita):
-        log += f"\tinsDirRes {listaDireita[indiceDireito]}"
-        listaCombinada.append(listaDireita[indiceDireito])
-        indiceDireito += 1
-
-    log += "\n"
-    print(f'{log}')
-    print(f'Combinada: {listaCombinada}')
-    return listaCombinada
-
+            buffer[i] = lista[i2]
+            i2 += 1
+    for i in range (baixo, alto + 1):
+        lista[i] = buffer[i]
 
 if __name__ == "__main__":
     lista = [3,2,8,1,5]
-    listaOrdenada = mergeSort(lista)
-    print(f"Ordenada: {listaOrdenada}")
+    mergeSort(lista, log=True)
+    print(lista)
+
