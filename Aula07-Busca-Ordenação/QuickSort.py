@@ -18,7 +18,7 @@ def particao(lista, esquerda, direita, log=False):
             fronteira += 1
             trocarPosicao(lista,i,fronteira)
         if(log):
-            print(f'I: {i}, Lista: {lista}, Fronteira: {fronteira}')        
+            print(f'I: {i}, Lista: {lista[esquerda:direita+1]}, Fronteira: {fronteira}')        
     trocarPosicao(lista,esquerda,fronteira)
     if(log):
             print(f'Pivot: {pivot}, Lista-Depois: {lista[esquerda:direita+1]}, Fronteira: {fronteira}')
