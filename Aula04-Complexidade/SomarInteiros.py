@@ -56,7 +56,7 @@ def gerarGrafico(numeros, resultados):
     plt.show()
     
 if __name__ == "__main__":
-    maximo = 100
+    maximo = 10000000
     numeros = range(1,maximo)
     resultados = analiseEmpirica(numeros)
     gerarGrafico(numeros, resultados)

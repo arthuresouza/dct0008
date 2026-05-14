@@ -19,6 +19,7 @@ def removerInicio(dicionario):
     for chave in chavesDicionario:
         if idx < len(chavesDicionario):
             dicionario[chave] = dicionario[chavesDicionario[idx]]
+            print(f"Chave: {chave}, Valor: {dicionario[chave]}")  # Debug: Imprime a chave e o valor atualizado
         else:
             dicionario[chave] = ""
         idx += 1
