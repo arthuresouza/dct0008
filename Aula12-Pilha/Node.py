@@ -4,13 +4,15 @@ Original Author: Ken Lambert (Fundamentals of Python Data Structure)
 Adapted by: Arthur Souza
 """
 
-class Node(object):
+class Node():
     """Representa um nó de uma lista ligada."""
     def __init__(self, data, next = None):
         """Instancia o Nó com o próximo apontando para Vazio."""
         self.data = data
         self.next = next
-    
+    def __str__(self):
+        """Retorna uma string representando o nó."""
+        return f'{self.data}'
 
 if __name__ == "__main__":
     # Nó vazio
@@ -25,6 +27,6 @@ if __name__ == "__main__":
     for count in range(1, 6):
         head = Node(count, head)
     # Print the contents of the structure
-    while head != None:
+    while head is not None:
         print(head.data)
         head = head.next

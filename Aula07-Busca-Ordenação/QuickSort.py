@@ -12,7 +12,7 @@ def particao(lista, esquerda, direita, log=False):
     pivot = lista[esquerda]
     fronteira = esquerda
     if(log):
-            print(f'Pivot: {pivot}, Lista-Antes: {lista[esquerda:direita+1]}, Fronteira: {fronteira}')
+            print(f'Pivot: {pivot}, Lista-Antes-Particao: {lista[esquerda:direita+1]}, Fronteira: {fronteira}')
     for i in range(esquerda+1,direita+1):
         if(lista[i] <= pivot):
             fronteira += 1
@@ -21,7 +21,7 @@ def particao(lista, esquerda, direita, log=False):
             print(f'I: {i}, Lista: {lista[esquerda:direita+1]}, Fronteira: {fronteira}')        
     trocarPosicao(lista,esquerda,fronteira)
     if(log):
-            print(f'Pivot: {pivot}, Lista-Depois: {lista[esquerda:direita+1]}, Fronteira: {fronteira}')
+            print(f'Pivot: {pivot}, Lista-Depois-Particao: {lista[esquerda:direita+1]}, Fronteira: {fronteira}')
     return fronteira
 
 def quickSort(lista,esquerda,direita, log=False):

@@ -10,9 +10,7 @@ Adapted by: Arthur Souza
 class Array():
 
     DEFAULT_CAPACITY = 5
-    logicalSize = 0
-    items = None
-
+    
     """Represents an array."""
     def __init__(self, capacity = DEFAULT_CAPACITY, fillValue = None):
         """Capacity is the static size of the array.
@@ -44,17 +42,17 @@ class Array():
     def increaseSize(self):
         """Aumenta o tamanho do Array"""
         if(self.logicalSize == len(self.items)):
-            temp = Array(len(self.items) + 1) # Cria um novo array
+            temp = Array(len(self.items) * 2) # Cria um novo array
         for i in range(self.logicalSize): # percorre o array
             temp [i] = self.items[i] # copia os dados
-            self.items = temp # atualiza a variável do array antigo.
+        self.items = temp.items # atualiza a variável do array antigo.
     
     def decreaseSize(self):
-        if self.logicalSize <= len(a) // 4 and len(self.items) >= self.DEFAULT_CAPACITY * 2:
-            temp = Array(len(self.items) + 1) # Cria um novo array a new array
+        if self.logicalSize <= len(self.items) // 4 and len(self.items) >= self.DEFAULT_CAPACITY * 2:
+            temp = Array(len(self.items) // 2) # Cria um novo array menor
             for i in range(self.logicalSize): # percorre o array
                 temp [i] = self.items[i] # copia os dados
-                self.items = temp # atualiza a variável do array antigo.
+            self.items = temp.items # atualiza a variável do array antigo.
 
     def insertAt(self,newItem,targetIndex):
         # Se necessário aumente o tamanho físico do Array
@@ -71,7 +69,7 @@ class Array():
         # Desloque os itens em uma posição
         for i in range(targetIndex, self.logicalSize - 1):
             self.items[i] = self.items[i + 1]
-            # Decremente o tamanho lógico
-            self.logicalSize -= 1
+        # Decremente o tamanho lógico
+        self.logicalSize -= 1
         # Diminua o tamanho array
         self.decreaseSize()

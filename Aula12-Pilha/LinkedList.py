@@ -1,4 +1,8 @@
-
+"""
+File: node.py
+Original Author: Ken Lambert (Fundamentals of Python Data Structure)
+Adapted by: Arthur Souza
+"""
 from Node import Node
 class LinkedList():
 
@@ -15,29 +19,33 @@ class LinkedList():
         return tamanho
 
     def __str__(self):
-        str = ""
+        if self.isEmpty():
+            return "Lista Vazia"
+        
+        resultado = ""
         probe = self.head
-        while probe != None:
-            str += f"({probe.data})"
-            if(probe.next.next != None):
-                str += "->"
+        while probe is not None:
+            resultado += f"({probe.data})"
+            # Se existir um próximo nó, coloca a seta
+            if probe.next is not None:
+                resultado += " -> "
             probe = probe.next
-        return str
+        return resultado
 
     def isEmpty(self):
-        return self.head == None
+        return self.head is None
     
     def travessia(self):
         probe = self.head
-        while probe != None:
+        while probe is not None:
             print(probe.data)
             probe = probe.next
 
     def search(self, targetItem):
         probe = self.head
-        while probe != None and targetItem != probe.data:
+        while probe is not None and targetItem != probe.data:
             probe = probe.next
-        if probe != None:
+        if probe is not None:
             return probe
         else:
             raise Exception("O item não está na lista.")
@@ -53,9 +61,9 @@ class LinkedList():
         
     def update(self, targetItem, newItem):
         probe = self.head
-        while probe != None and targetItem != probe.data:
+        while probe is not None and targetItem != probe.data:
             probe = probe.next
-        if probe != None:
+        if probe is not None:
             probe.data = newItem
             return True
         else:
@@ -63,7 +71,7 @@ class LinkedList():
         
     def updateAt(self, index, newItem):
         # Considere 0 <= index < n
-        probe = self
+        probe = self.head
         while index > 0:
             probe = probe.next
             index -= 1
@@ -75,12 +83,12 @@ class LinkedList():
     def insertAtLast(self,newItem):
         newNode = Node(newItem)
         if self.head is None:
-            head = newNode
+            self.head = newNode
         else:
             probe = self.head
-            while probe.next != None:
+            while probe.next is not None:
                 probe = probe.next
-                probe.next = newNode
+            probe.next = newNode
     
     def removeFirst(self):
         removedItem = self.head.data
@@ -88,12 +96,12 @@ class LinkedList():
         return removedItem
     
     def removeLast(self):
-        removedItem = head.data
+        removedItem = self.head.data
         if self.head.next is None:
-            head = None
+            self.head = None
         else:
             probe = self.head
-            while probe.next.next != None:
+            while probe.next.next is not None:
                 probe = probe.next
                 removedItem = probe.next.data
                 probe.next = None
@@ -105,14 +113,14 @@ class LinkedList():
         else:
             # Search for node at position index - 1 or the last position
             probe = self.head
-            while index > 1 and probe.next != None:
+            while index > 1 and probe.next is not None:
                 probe = probe.next
                 index -= 1
                 # Insert new node after node at position index - 1
             # or last position
             probe.next = Node(newItem, probe.next)
 
-    def removeAt(self):
+    def removeAt(self, index):
         # Assumes that the linked structure has at least one item
         if index <= 0 or self.head.next is None:
             removedItem = self.head.data
@@ -122,7 +130,7 @@ class LinkedList():
             # Search for node at position index - 1 or
             # the next to last position
             probe = self.head
-            while index > 1 and probe.next.next != None:
+            while index > 1 and probe.next.next is not None:
                 probe = probe.next
                 index -= 1
             removedItem = probe.next.data
