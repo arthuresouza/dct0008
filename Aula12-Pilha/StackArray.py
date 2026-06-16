@@ -22,8 +22,8 @@ class StackArray():
         return iter(pilhaTemp)
     
     def __contains__(self,item):
-        for itemStack in self.items:
-            if(itemStack == item):
+        for i in range(0,self.topo+1):
+            if(self.items == item):
                 return True
         return False
         
