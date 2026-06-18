@@ -1,4 +1,8 @@
-from collections import deque
+"""
+Classe para árvore AVL
+@author Arthur Souza
+Baseado no código em https://github.com/joaoarthurbm/eda-implementacoes/blob/master/java/src/avl/AVL.java
+"""
 from Node import Node
 
 class AVL:
@@ -21,8 +25,10 @@ class AVL:
             self.tamanho += 1
             return
         
-        sonda = self.raiz
         
+        sonda = self.raiz
+        # Percorre a árvore para encontrar a posição correta para o novo elemento,
+        # inserindo-o e verificando o balanceamento da árvore.
         while sonda is not None:
             if dado < sonda.dado:
                 if sonda.esquerdo is None:
@@ -53,10 +59,10 @@ class AVL:
                 
                 sonda = sonda.direito
 
-    # Checa do node passado até a raíz da árvore se existe um desbalanceamento.
+    # Verifica do node passado até a raíz da árvore se existe um desbalanceamento.
     def esta_balanceado(self, node:Node):
         """
-        Checa do node passado até a raíz da árvore (pai = None) se existe um desbalanceamento.
+        Verifica do node passado até a raíz da árvore (pai = None) se existe um desbalanceamento.
         :param node: node de onde se começa a checagem
         :return: o node desbalanceado ou None caso a árvore esteja balanceada
         """
